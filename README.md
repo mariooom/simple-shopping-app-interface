@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # simple-shopping-app-interface
 This project demonstrates how to build a responsive UI using Flutter. The application is a stateful widget with a horizontal scrollable layout containing multiple sections: a page view for products, a grid view for product cards, and a list view for hot offers.
 # Features
