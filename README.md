@@ -46,10 +46,9 @@ Contains multiple horizontally scrollable sections:
 ![WhatsApp Image 2024-12-30 at 00 06 29_e04a530d](https://github.com/user-attachments/assets/ca113222-bce6-4b4a-9f0c-680dff5fd942)
 ![WhatsApp Image 2024-12-30 at 00 06 29_a6aeb1f0](https://github.com/user-attachments/assets/0fead678-d843-46c2-b493-a9f6c350645e)
 ![WhatsApp Image 2024-12-30 at 00 03 03_29c790c7](https://github.com/user-attachments/assets/c720a2cd-a609-490a-bd36-bfe1cb3afa92)
-![sign1](https://github.com/user-attachments/assets/24d9943a-901a-4b96-9c9c-d2d88c635819)
 
 
-![Screenshot_1735414667](https://github.com/user-attachments/assets/cf170a80-84e0-44b1-9f32-3bf0b4bbbd60)
+
 ![WhatsApp Image 2024-12-30 at 00 02 46_9b34042f](https://github.com/user-attachments/assets/62fae952-47be-4cb3-9ec5-51f5ed5f3b5d)
 ![homepage_1](https://github.com/user-attachments/assets/8a8a1edf-281a-4f8f-80b7-b99d48f64e13)
 
