@@ -46,6 +46,7 @@ Contains multiple horizontally scrollable sections:
 ![WhatsApp Image 2024-12-30 at 00 06 29_e04a530d](https://github.com/user-attachments/assets/ca113222-bce6-4b4a-9f0c-680dff5fd942)
 ![WhatsApp Image 2024-12-30 at 00 06 29_a6aeb1f0](https://github.com/user-attachments/assets/0fead678-d843-46c2-b493-a9f6c350645e)
 ![WhatsApp Image 2024-12-30 at 00 03 03_29c790c7](https://github.com/user-attachments/assets/c720a2cd-a609-490a-bd36-bfe1cb3afa92)
+![WhatsApp Image 2024-12-30 at 00 06 29_16f8e822](https://github.com/user-attachments/assets/3dbb21ba-5cd3-4b05-9053-2c957b457547)
 
 
 
