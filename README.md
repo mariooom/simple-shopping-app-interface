@@ -1,12 +1,12 @@
 
 # Simple Shopping App Interface
-This project demonstrates how to build a responsive UI using Flutter. The application features a sign-up page and a stateful home page with a horizontal scrollable layout containing multiple sections: a page view for products, a grid view for product cards, and a list view for hot offers.
+This project demonstrates how to build a responsive UI using Flutter. The application features a sign-up page and a stateful home page with a horizontal scrollable layout containing multiple sections: a PageView for products, a GridView for product cards, and a ListView for hot offers. Additionally, the app includes smooth fade animations for seamless transitions between pages.
 
 # Features
 1. Sign-Up Page
 A fully functional Sign-Up Page that allows users to:
 - Input their name, email, password, and confirm password.
--  Validate input fields with detailed error handling:
+- Validate input fields with detailed error handling:
 - Name must start with a capital letter.
 - Email must contain an "@" symbol.
 - Password must be at least 6 characters long.
@@ -14,32 +14,33 @@ A fully functional Sign-Up Page that allows users to:
 - View and hide passwords using a toggle button.
 - Submit the form to create an account and navigate to the home page.
 - Includes a success dialog upon account creation.
-3. Responsive Design
+- Fade Animation: After confirming the dialog, the sign-up page fades out while the home page fades in, creating a smooth transition.
+2. Responsive Design
 - Utilizes MediaQuery to ensure the UI adjusts dynamically to various screen sizes.
-4. Home Page
+3. Home Page
 Contains multiple horizontally scrollable sections:
 - Our Products: Displays a PageView for browsing product images.
 - Product Grid: A responsive GridView displaying product cards with images, text, and an "Add to Cart" button. Includes a Snackbar notification for adding items to the cart.
 - Hot Offers: A ListView displaying a list of hot offers with images and text.
-5. Horizontal Scrolling
+4. Horizontal Scrolling
 - The entire layout is horizontally scrollable using a SingleChildScrollView with horizontal orientation.
 # Pages
 1. Sign-Up Page
 - The entry point for the app.
 - Contains a Form with the following fields:
-1) Name
+1)Name
 2)Email
-3) Password
-4) Confirm Password
+3)Password
+4)Confirm Password
 - Provides real-time validation and error messages.
-- After successful submission, navigates to the home page.
+- After successful submission, navigates to the home page with a fade animation.
 2. Home Page
-- Contains:
-1) A title bar.
-2) Horizontally scrollable sections:
-3) Our Products: Displays product images in a PageView.
-4) Product Grid: Cards with text, images, and an "Add to Cart" button.
-5) Hot Offers: A list of items with images and descriptions.
+Contains:
+- A title bar.
+- Horizontally scrollable sections:
+- Our Products: Displays product images in a PageView.
+- Product Grid: Cards with text, images, and an "Add to Cart" button.
+- Hot Offers: A list of items with images and descriptions.
 # Output:
 
 
@@ -55,7 +56,11 @@ Contains multiple horizontally scrollable sections:
 
 
 
-https://github.com/user-attachments/assets/ebda07e5-d034-42b4-b54e-ee2c8944b056
+
+
+
+https://github.com/user-attachments/assets/e023c8b2-ad17-4c5a-bb7b-449d5aee6b7e
+
 
 
 
