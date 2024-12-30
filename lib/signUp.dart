@@ -36,11 +36,28 @@ class _SignUpPageState extends State<SignUpPage> {
           actions: [
             TextButton(
               child: Text('OK'),
-              onPressed: () {        //adding a function to navigate to the home page
-                Navigator.pop(context);
+              onPressed: () {
+                //adding a function to navigate to the home page
+                Navigator.pop(context); //closing the dialog
                 Navigator.push(
+                  //navigating to the home page
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  PageRouteBuilder(
+                    //using PageRouteBuilder
+                    pageBuilder: (context, animation,
+                            secondaryAnimation) => //passing the HomePage widget
+                        HomePage(),
+                    transitionsBuilder: //defining the transition used
+                        (context, animation, secondaryAnimation, child) {
+                      return FadeTransition(
+                        //using FadeTransition
+                        opacity: animation, //defining the opacity
+                        child: HomePage(), //passing the HomePage widget
+                      );
+                    },
+                    transitionDuration:
+                        const Duration(seconds: 2), //defining the duration
+                  ),
                 );
               },
             ),
@@ -48,15 +65,17 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       );
     } else {
-      _showSnackBar('Please correct the errors in the form');            //if form is not valid, show snackbar
+      _showSnackBar(
+          'Please correct the errors in the form'); //if form is not valid, show snackbar
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(             //creating a scrollable widget
+    return SingleChildScrollView(
+      //creating a scrollable widget
       child: Form(
-        key: _formKey,        
+        key: _formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -75,113 +94,147 @@ class _SignUpPageState extends State<SignUpPage> {
                 style: TextStyle(fontSize: 36, fontFamily: 'Pacifico')),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextFormField(  //adding text form field for name
-                controller: nameController,   //controller for name
-                validator: (value) {        //validator for name
-                  if (value == null || value.isEmpty) {          //throw error if name is empty
-                    return 'Name cannot be empty';           //return error message
+              child: TextFormField(
+                //adding text form field for name
+                controller: nameController, //controller for name
+                validator: (value) {
+                  //validator for name
+                  if (value == null || value.isEmpty) {
+                    //throw error if name is empty
+                    return 'Name cannot be empty'; //return error message
                   }
-                  if (!RegExp(r'^[A-Z]').hasMatch(value)) {      //check if first letter is capitalized
-                    return 'First letter must be capitalized';    //return error message
+                  if (!RegExp(r'^[A-Z]').hasMatch(value)) {
+                    //check if first letter is capitalized
+                    return 'First letter must be capitalized'; //return error message
                   }
-                  return null;       //return null if name is valid
+                  return null; //return null if name is valid
                 },
-                decoration: const InputDecoration(     //decoration for text form field
+                decoration: const InputDecoration(
+                  //decoration for text form field
                   labelText: 'Name',
-                  prefixIcon: Icon(Icons.person),     //icon for text form field
+                  prefixIcon: Icon(Icons.person), //icon for text form field
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextFormField(       //adding text form field for email
-                controller: emailController,     //controller for email
-                validator: (value) {      //validator for email
-                  if (value == null || value.isEmpty) {    //throw error if email is empty
-                    return 'Email cannot be empty';      //return error message
+              child: TextFormField(
+                //adding text form field for email
+                controller: emailController, //controller for email
+                validator: (value) {
+                  //validator for email
+                  if (value == null || value.isEmpty) {
+                    //throw error if email is empty
+                    return 'Email cannot be empty'; //return error message
                   }
-                  if (!value.contains('@')) {        //check if email contains @
-                    return 'Email must contain @';     //return error message
+                  if (!value.contains('@')) {
+                    //check if email contains @
+                    return 'Email must contain @'; //return error message
                   }
                   return null;
                 },
-                decoration: const InputDecoration(            //decoration for text form field
+                decoration: const InputDecoration(
+                  //decoration for text form field
                   labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),        //icon for text form field
+                  prefixIcon: Icon(Icons.email), //icon for text form field
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextFormField(            //adding text form field for password
-                controller: passwordController,      //controller for password
-                validator: (value) {           //validator for password
-                  if (value == null || value.isEmpty) {    //throw error if password is empty
-                    return 'Password cannot be empty';   //return error message
+              child: TextFormField(
+                //adding text form field for password
+                controller: passwordController, //controller for password
+                validator: (value) {
+                  //validator for password
+                  if (value == null || value.isEmpty) {
+                    //throw error if password is empty
+                    return 'Password cannot be empty'; //return error message
                   }
-                  if (value.length < 6) {      //check if password is at least 6 characters
-                    return 'Password must be at least 6 characters';    //return error message
+                  if (value.length < 6) {
+                    //check if password is at least 6 characters
+                    return 'Password must be at least 6 characters'; //return error message
                   }
-                  return null;            //return null if password is valid
+                  return null; //return null if password is valid
                 },
-                decoration: InputDecoration(   //decoration for text form field
+                decoration: InputDecoration(
+                  //decoration for text form field
                   labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock),    //icon for text form field
-                  suffixIcon: IconButton(         //icon button for password visibility
-                    icon: Icon(hiddenPassword    ? Icons.visibility  : Icons.visibility_off),    //to show or hide password icons
+                  prefixIcon: Icon(Icons.lock), //icon for text form field
+                  suffixIcon: IconButton(
+                    //icon button for password visibility
+                    icon: Icon(hiddenPassword
+                        ? Icons.visibility
+                        : Icons
+                            .visibility_off), //to show or hide password icons
                     onPressed: () {
-                      setState(() {        //set state to update visibility
-                        hiddenPassword = !hiddenPassword;     //toggle visibility
+                      setState(() {
+                        //set state to update visibility
+                        hiddenPassword = !hiddenPassword; //toggle visibility
                       });
                     },
                   ),
                 ),
-                obscureText: hiddenPassword,      //obscure text to hide password
+                obscureText: hiddenPassword, //obscure text to hide password
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextFormField(          //adding text form field for confirm password
-                controller: confirmPasswordController,  //controller for confirm password
-                validator: (value) {    //validator for confirm password
-                  if (value == null || value.isEmpty) {    //throw error if confirm password is empty
-                    return 'Please confirm your password';    //return error message
+              child: TextFormField(
+                //adding text form field for confirm password
+                controller:
+                    confirmPasswordController, //controller for confirm password
+                validator: (value) {
+                  //validator for confirm password
+                  if (value == null || value.isEmpty) {
+                    //throw error if confirm password is empty
+                    return 'Please confirm your password'; //return error message
                   }
-                  if (value != passwordController.text) {     //check if confirm password matches password
-                    return 'Passwords do not match';         //return error message
+                  if (value != passwordController.text) {
+                    //check if confirm password matches password
+                    return 'Passwords do not match'; //return error message
                   }
-                  return null;                              //return null if confirm password is valid
+                  return null; //return null if confirm password is valid
                 },
-                decoration: InputDecoration(          //decoration for text form field
-                  labelText: 'Confirm Password',      
-                  prefixIcon: Icon(Icons.lock),         
-                  suffixIcon: IconButton(   //icon button for confirm password visibility
+                decoration: InputDecoration(
+                  //decoration for text form field
+                  labelText: 'Confirm Password',
+                  prefixIcon: Icon(Icons.lock),
+                  suffixIcon: IconButton(
+                    //icon button for confirm password visibility
                     icon: Icon(
                       hiddenConfirmPassword
                           ? Icons.visibility
                           : Icons.visibility_off,
-                    ),       //to show or hide confirm password icons
+                    ), //to show or hide confirm password icons
                     onPressed: () {
-                      setState(() {            //set state to update visibility
-                        hiddenConfirmPassword = !hiddenConfirmPassword;     //toggle visibility
+                      setState(() {
+                        //set state to update visibility
+                        hiddenConfirmPassword =
+                            !hiddenConfirmPassword; //toggle visibility
                       });
                     },
                   ),
                 ),
-                obscureText: hiddenConfirmPassword,         //obscure text to hide confirm password
+                obscureText:
+                    hiddenConfirmPassword, //obscure text to hide confirm password
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(25.0),
-              child: MaterialButton(           //creating button for sign up
+              child: MaterialButton(
+                //creating button for sign up
                 height: 70,
                 color: Color(0xFFd6ccc2),
-                onPressed: _validateAndShowDialog,     //function to validate and show dialog
-                shape: RoundedRectangleBorder(        
-                  borderRadius: BorderRadius.circular(10),          //round corners
-                  side: BorderSide(color: Color(0xFFd6ccc2), width: 1.0),        //border
+                onPressed:
+                    _validateAndShowDialog, //function to validate and show dialog
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10), //round corners
+                  side:
+                      BorderSide(color: Color(0xFFd6ccc2), width: 1.0), //border
                 ),
-                child: Text(        //add custom text to button
+                child: Text(
+                  //add custom text to button
                   'Sign Up',
                   style: TextStyle(
                       color: Colors.black,
