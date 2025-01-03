@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 // Stateless widget to display a horizontal list view of product offers
@@ -38,7 +39,7 @@ class ProductsListView extends StatelessWidget {
                         ),
                         // Discount text
                         Text(
-                          '15% Off',
+                          '15% Off'.tr(),
                           style: TextStyle(
                             fontFamily: 'Padauk', // Custom font style
                             fontSize: 20,
@@ -70,7 +71,7 @@ class ProductsListView extends StatelessWidget {
                         ),
                         // Discount text
                         Text(
-                          '20% Off',
+                          '20% Off'.tr(),
                           style: TextStyle(
                             fontFamily: 'Padauk', // Custom font style
                             fontSize: 20,
@@ -103,7 +104,7 @@ class ProductsListView extends StatelessWidget {
                         ),
                         // Discount text
                         Text(
-                          '20% Off',
+                          '20% Off'.tr(),
                           style: TextStyle(
                             fontFamily: 'Padauk', // Custom font style
                             fontSize: 20,
@@ -135,7 +136,7 @@ class ProductsListView extends StatelessWidget {
                         ),
                         // Discount text
                         Text(
-                          '45% Off',
+                          '45% Off'.tr(),
                           style: TextStyle(
                             fontFamily: 'Padauk', // Custom font style
                             fontSize: 20,
