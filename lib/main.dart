@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/signUp.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'signUp.dart'; 
 
-void main() {
-  runApp(const MyApp()); // entry point of the application
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();   
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en', 'US'), Locale('ar', 'EG')],
+      path: 'lang', // Path to translation files
+      fallbackLocale: Locale('en', 'US'),
+      child: MyApp(),
+    ),
+  );
 }
 
-// root widget of the application
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,  //to add localizations
+      supportedLocales: context.supportedLocales,    
+      locale: context.locale,
       debugShowCheckedModeBanner: false, //removes debug banner
-      title: 'Shopping App', //title of the app
-      home: MainPage(), // sets the SignUpPage as the default screen
+      title: 'Shopping App', // Title of the app
+      home: MainPage(), // Sets the MainPage as the default screen
     );
   }
 }
@@ -26,7 +39,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SignUpPage(), //start with SignUpPage
+      body: SignUpPage(), // Start with SignUpPage
     );
   }
 }
