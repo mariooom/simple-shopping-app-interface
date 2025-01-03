@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/widgets/grid_view.dart';
 import 'package:shopping_app/widgets/list_view.dart';
 import 'package:shopping_app/widgets/page_view.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFd6ccc2), // sets a custom app bar color
         title: Text(
-          'Welcome', // appBar title
+          'Welcome'.tr(), // appBar title
           style: TextStyle(
             fontFamily: 'Pacifico', // custom font for title
             fontWeight: FontWeight.bold,
@@ -27,15 +28,21 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: Icon(
-              Icons.search, // search icon in the app bar
+              Icons.language, // search icon in the app bar
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {  //when icon is pressed, it changes language
+              if (context.locale == Locale('en', 'US')) {
+                context.setLocale(Locale('ar', 'EG'));
+              } else {
+                context.setLocale(Locale('en', 'US'));
+              }
+            },
           ),
         ],
       ),
       body: SizedBox(
-        height: 700,
+        height: 800,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical, //allows vertical scrolling
           child: ConstrainedBox(
@@ -48,11 +55,14 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment:
                   CrossAxisAlignment.start, // aligns content to start
               children: [
-                Text(
-                  '   Our Products..',
-                  style: TextStyle(
-                    fontFamily: 'Pacifico',
-                    fontSize: 30,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Our Products'.tr(),
+                    style: TextStyle(
+                      fontFamily: 'Pacifico',
+                      fontSize: 30,
+                    ),
                   ),
                 ),
                 ProductsPageView(), // displays a horizontal page view of products
@@ -70,11 +80,14 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 // Section title
-                Text(
-                  '   Hot Offers..',
-                  style: TextStyle(
-                    fontFamily: 'Pacifico',
-                    fontSize: 30,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Hot Offers'.tr(),
+                    style: TextStyle(
+                      fontFamily: 'Pacifico',
+                      fontSize: 30,
+                    ),
                   ),
                 ),
                 ProductsListView(), // displays a list view of hot offers
@@ -83,30 +96,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        // bottom navigation bar
-        backgroundColor: Color(0xFFd6ccc2), //custom navigation bar color
-        items: const <BottomNavigationBarItem>[
-          // navigation bar items
-          BottomNavigationBarItem(
-            //home page item
-            icon: Icon(
-              Icons.home,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            //settings page item
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-          BottomNavigationBarItem(
-            //profile page item
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
     );
   }
 }
+
